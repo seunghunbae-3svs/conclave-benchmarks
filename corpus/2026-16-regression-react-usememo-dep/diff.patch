@@ -1,0 +1,13 @@
+diff --git a/src/base.ts b/src/base.ts
+index 1111111..2222222 100644
+--- a/src/base.ts
++++ b/src/base.ts
+@@ -14,7 +14,7 @@ export function useFilteredProducts(products: Product[], query: string, minPrice
+       products.filter(
+         (p) => p.name.toLowerCase().includes(query.toLowerCase()) && p.price >= minPrice,
+       ),
+-    [products, query, minPrice],
++    [products],
+   );
+   return filtered;
+ }

@@ -1,0 +1,28 @@
+{
+  "name": "conclave-benchmarks",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open benchmark harness for multi-agent code review systems. Defend claims with data, not marketing copy.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "bench": "node dist/bench/src/run.js",
+    "score": "node dist/bench/src/score.js",
+    "test": "node --test --experimental-test-coverage dist/bench/test/*.test.js",
+    "lint": "prettier --check bench corpus README.md",
+    "format": "prettier --write bench corpus README.md"
+  },
+  "dependencies": {
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  }
+}

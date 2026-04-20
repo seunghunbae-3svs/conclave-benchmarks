@@ -1,0 +1,7 @@
+{
+  "id": "2026-10-clean-readme-typo",
+  "category": "clean",
+  "expected_verdict": "approve",
+  "expected_blockers": [],
+  "notes": "README typo fix — reviewer should approve. Flagging this as rework is a false positive."
+}

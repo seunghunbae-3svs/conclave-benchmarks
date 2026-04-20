@@ -1,0 +1,13 @@
+{
+  "id": "2026-06-logic-race-shared-state",
+  "category": "logic",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "correctness",
+      "note": "New in-flight map is populated after `p = load()` is called, not before — concurrent callers still hit the origin. Also `inflight.set(key, p)` is missing entirely."
+    }
+  ]
+}

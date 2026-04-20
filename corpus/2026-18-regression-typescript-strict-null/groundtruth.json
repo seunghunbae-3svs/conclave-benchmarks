@@ -1,0 +1,13 @@
+{
+  "id": "2026-18-regression-typescript-strict-null",
+  "category": "regression",
+  "expected_verdict": "reject",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "blocker",
+      "category_hint": "correctness",
+      "note": "Non-null assertion `!` on an optional field. `order.customerEmail` is legitimately undefined for many orders; `.toLowerCase()` throws. The comment is wrong — TS does not 'narrow' optional props without a null check."
+    }
+  ]
+}

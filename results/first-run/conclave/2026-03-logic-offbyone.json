@@ -1,0 +1,17 @@
+{
+  "tool": "conclave",
+  "case_id": "2026-03-logic-offbyone",
+  "ok": false,
+  "error": "no LLM API keys set (ANTHROPIC_API_KEY / OPENAI_API_KEY / GEMINI_API_KEY / XAI_API_KEY). Skipping live invocation.",
+  "blockers": [],
+  "cost_usd": null,
+  "latency_ms": 0,
+  "tokens": null,
+  "cache_hit": null,
+  "agent_count": null,
+  "meta": {
+    "skipped": true,
+    "reason": "missing_api_keys"
+  },
+  "timestamp": "2026-04-20T15:19:58.090Z"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "2026-07-security-aws-key",
+  "category": "security",
+  "expected_verdict": "reject",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "blocker",
+      "category_hint": "security",
+      "note": "Hardcoded AWS access key + secret in source. Keys shown are AWS's own documentation-example credentials (not live), but the format matches AKIA[A-Z0-9]{16} and the pattern is what a reviewer must catch."
+    }
+  ],
+  "notes": "Uses AWS's public documentation example keys (AKIAIOSFODNN7EXAMPLE / wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY) so we're not leaking a real secret."
+}

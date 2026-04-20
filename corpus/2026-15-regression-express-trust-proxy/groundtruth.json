@@ -1,0 +1,14 @@
+{
+  "id": "2026-15-regression-express-trust-proxy",
+  "category": "regression",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "regression",
+      "note": "Removing `app.set('trust proxy', 1)` breaks rate limiting, logging, and `req.ip` when the app runs behind any load balancer or reverse proxy. The explanatory comment was the only guard against this."
+    }
+  ],
+  "source_url": "https://expressjs.com/en/guide/behind-proxies.html"
+}

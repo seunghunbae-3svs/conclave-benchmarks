@@ -1,0 +1,14 @@
+{
+  "id": "2026-02-encoding-emdash",
+  "category": "encoding",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": ".github/workflows/ci.yml",
+      "severity": "minor",
+      "category_hint": "encoding",
+      "note": "Em-dashes got corrupted to '?' during a copy-paste through a non-UTF8 locale. The YAML is still valid but the human-readable labels are broken."
+    }
+  ],
+  "notes": "Observed during Conclave E2E smoke; reproducible — known-good ground truth."
+}

@@ -1,0 +1,18 @@
+diff --git a/src/base.ts b/src/base.ts
+index 1111111..2222222 100644
+--- a/src/base.ts
++++ b/src/base.ts
+@@ -5,8 +5,9 @@ export interface AwsConfig {
+ }
+
+ export function loadAwsConfig(): AwsConfig {
++  // TEMP for local dev — will remove before merge
+   return {
+-    accessKeyId: process.env.AWS_ACCESS_KEY_ID ?? "",
+-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY ?? "",
+-    region: process.env.AWS_REGION ?? "us-east-1",
++    accessKeyId: "AKIAIOSFODNN7EXAMPLE",
++    secretAccessKey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
++    region: "us-east-1",
+   };
+ }

@@ -1,0 +1,26 @@
+node_modules/
+dist/
+.tsbuildinfo
+*.tsbuildinfo
+
+# Ephemeral run artifacts — keep results/first-run/ checked in as a sample
+results/tmp/
+results/.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary benchmark workspaces
+.bench-tmp/

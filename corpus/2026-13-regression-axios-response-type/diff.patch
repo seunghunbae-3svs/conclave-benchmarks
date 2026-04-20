@@ -1,0 +1,13 @@
+diff --git a/src/base.ts b/src/base.ts
+index 1111111..2222222 100644
+--- a/src/base.ts
++++ b/src/base.ts
+@@ -1,6 +1,7 @@
+ import axios from "axios";
+
+ export async function downloadFile(url: string): Promise<Buffer> {
+-  const res = await axios.get<ArrayBuffer>(url, { responseType: "arraybuffer" });
++  // defaults are fine
++  const res = await axios.get<ArrayBuffer>(url);
+   return Buffer.from(res.data);
+ }

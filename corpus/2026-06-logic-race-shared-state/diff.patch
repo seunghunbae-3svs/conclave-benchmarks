@@ -1,0 +1,22 @@
+diff --git a/src/base.ts b/src/base.ts
+index 1111111..2222222 100644
+--- a/src/base.ts
++++ b/src/base.ts
+@@ -1,10 +1,14 @@
+-let cache: Map<string, unknown> | null = null;
++let cache: Map<string, unknown> = new Map();
++let inflight: Map<string, Promise<unknown>> | null = null;
+
+ export async function getCached<T>(key: string, load: () => Promise<T>): Promise<T> {
+-  if (!cache) cache = new Map();
+   const hit = cache.get(key);
+   if (hit !== undefined) return hit as T;
+-  const v = await load();
++  // new "optimization": remember in-flight loads so we don't hit the origin twice
++  if (!inflight) inflight = new Map();
++  let p = inflight.get(key) as Promise<T> | undefined;
++  if (!p) p = load();
++  const v = await p;
+   cache.set(key, v);
+   return v;
+ }

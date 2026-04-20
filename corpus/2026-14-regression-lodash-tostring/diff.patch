@@ -1,0 +1,12 @@
+diff --git a/src/base.ts b/src/base.ts
+index 1111111..2222222 100644
+--- a/src/base.ts
++++ b/src/base.ts
+@@ -1,5 +1,6 @@
+-import { toString } from "lodash";
++// drop lodash dep
++const toString = (v: unknown): string => String(v);
+
+ export function stringifyId(v: unknown): string {
+   return toString(v);
+ }

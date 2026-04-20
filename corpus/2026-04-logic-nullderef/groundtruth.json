@@ -1,0 +1,13 @@
+{
+  "id": "2026-04-logic-nullderef",
+  "category": "logic",
+  "expected_verdict": "reject",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "blocker",
+      "category_hint": "correctness",
+      "note": "Removed `if (!user) return ''` and dropped optional chaining — `user.session.token` crashes when user is null or session is undefined."
+    }
+  ]
+}

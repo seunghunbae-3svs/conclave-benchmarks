@@ -1,0 +1,13 @@
+{
+  "id": "2026-03-logic-offbyone",
+  "category": "logic",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "correctness",
+      "note": "Loop bound changed from `i < n` to `i <= n` — sums n+1 elements instead of n."
+    }
+  ]
+}

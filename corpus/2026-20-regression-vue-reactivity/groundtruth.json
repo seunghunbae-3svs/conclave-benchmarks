@@ -1,0 +1,14 @@
+{
+  "id": "2026-20-regression-vue-reactivity",
+  "category": "regression",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "regression",
+      "note": "Destructuring a reactive object in Vue 3 breaks reactivity — `filters` is a plain object, not a proxy. Components that import `filters` from the store will not re-render on updates. Vue docs explicitly warn against this; toRefs/storeToRefs is the fix."
+    }
+  ],
+  "source_url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html#reactive-proxy-vs-original"
+}

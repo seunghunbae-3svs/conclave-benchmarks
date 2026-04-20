@@ -1,0 +1,14 @@
+{
+  "id": "2026-13-regression-axios-response-type",
+  "category": "regression",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "regression",
+      "note": "`responseType: 'arraybuffer'` removed. Axios default is 'json' — binary downloads now come back as UTF-8 garbled strings, and Buffer.from(string) silently mis-decodes."
+    }
+  ],
+  "source_url": "https://github.com/axios/axios/issues (pattern documented in countless regressions; the library's own docs warn about it)"
+}

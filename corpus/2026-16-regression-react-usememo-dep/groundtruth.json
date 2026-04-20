@@ -1,0 +1,14 @@
+{
+  "id": "2026-16-regression-react-usememo-dep",
+  "category": "regression",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "regression",
+      "note": "Removed `query` and `minPrice` from the useMemo dependency array. Filter results stale whenever the user types or changes the price slider — classic React hook bug that `react-hooks/exhaustive-deps` is supposed to catch but humans sometimes silence with an eslint-disable."
+    }
+  ],
+  "source_url": "https://react.dev/reference/react/useMemo#specifying-a-dependency-array"
+}

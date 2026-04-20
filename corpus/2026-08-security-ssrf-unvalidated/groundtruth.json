@@ -1,0 +1,13 @@
+{
+  "id": "2026-08-security-ssrf-unvalidated",
+  "category": "security",
+  "expected_verdict": "reject",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "blocker",
+      "category_hint": "security",
+      "note": "Allowlist removed — attacker-controlled rawUrl can reach 169.254.169.254 (AWS IMDS), localhost services, internal cluster addresses. Classic SSRF."
+    }
+  ]
+}

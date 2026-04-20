@@ -1,0 +1,77 @@
+name: Nightly benchmark
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # 06:00 UTC daily (= 15:00 KST)
+  workflow_dispatch:
+
+jobs:
+  nightly-bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: corepack pnpm install --frozen-lockfile=false
+
+      - name: Build
+        run: corepack pnpm build
+
+      - name: Resolve @conclave-ai/cli latest version
+        id: version
+        run: |
+          V=$(npm view @conclave-ai/cli version)
+          echo "cli_version=$V" >> $GITHUB_OUTPUT
+          echo "Using @conclave-ai/cli@$V"
+
+      - name: Run benchmark against conclave-ai@latest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          corepack pnpm bench -- \
+            --corpus corpus/ \
+            --tools conclave \
+            --cli-version ${{ steps.version.outputs.cli_version }} \
+            --output results/nightly/ \
+            --concurrency 4
+
+      - name: Score + update RESULTS.md
+        run: |
+          corepack pnpm score -- \
+            --results results/nightly/ \
+            --corpus corpus/ \
+            --output RESULTS.md
+
+      - name: Open PR with refreshed RESULTS.md
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(bench): nightly refresh — @conclave-ai/cli@${{ steps.version.outputs.cli_version }}"
+          title: "nightly benchmark refresh — ${{ steps.version.outputs.cli_version }}"
+          body: |
+            Automated nightly run of the benchmark harness against `@conclave-ai/cli@${{ steps.version.outputs.cli_version }}`.
+
+            - Runner: `pnpm bench` against `corpus/`
+            - Scorer: `pnpm score` → `RESULTS.md`
+            - Raw results: `results/nightly/` (generated, ignored by default)
+
+            If numbers regressed, investigate in `conclave-ai` repo.
+          branch: nightly/bench-refresh
+          delete-branch: true
+          add-paths: |
+            RESULTS.md

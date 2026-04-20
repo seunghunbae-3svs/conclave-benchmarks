@@ -1,0 +1,7 @@
+{
+  "id": "2026-12-clean-test-addition",
+  "category": "clean",
+  "expected_verdict": "approve",
+  "expected_blockers": [],
+  "notes": "Pure test-addition PR. Approve."
+}

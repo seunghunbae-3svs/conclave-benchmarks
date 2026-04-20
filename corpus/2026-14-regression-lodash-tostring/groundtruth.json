@@ -1,0 +1,14 @@
+{
+  "id": "2026-14-regression-lodash-tostring",
+  "category": "regression",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "regression",
+      "note": "lodash `toString(null)` returns '' but `String(null)` returns 'null'. Same for undefined ('' vs 'undefined'). IDs that pass through this function change shape silently."
+    }
+  ],
+  "source_url": "https://lodash.com/docs/4.17.15#toString (behaviour documented; regression pattern seen in multiple lodash-removal PRs)"
+}

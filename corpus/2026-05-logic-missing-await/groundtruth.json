@@ -1,0 +1,13 @@
+{
+  "id": "2026-05-logic-missing-await",
+  "category": "logic",
+  "expected_verdict": "reject",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "blocker",
+      "category_hint": "correctness",
+      "note": "Dropped `await` and cast the Promise to Profile via `as unknown as Profile`. Returns an unresolved Promise object; downstream code sees `.then` where it expected `.email`."
+    }
+  ]
+}

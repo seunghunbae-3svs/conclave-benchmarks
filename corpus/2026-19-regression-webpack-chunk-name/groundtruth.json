@@ -1,0 +1,14 @@
+{
+  "id": "2026-19-regression-webpack-chunk-name",
+  "category": "regression",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "minor",
+      "category_hint": "regression",
+      "note": "`webpackChunkName` magic comment removed. Build still works, but chunks are now hashed names like `123.abc.js`. Analytics dashboards keyed on chunk names go blind, CDN cache rules break, error reports become anonymized."
+    }
+  ],
+  "source_url": "https://webpack.js.org/api/module-methods/#magic-comments"
+}

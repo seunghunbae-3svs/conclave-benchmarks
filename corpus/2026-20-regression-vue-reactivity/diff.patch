@@ -1,0 +1,18 @@
+diff --git a/src/base.ts b/src/base.ts
+index 1111111..2222222 100644
+--- a/src/base.ts
++++ b/src/base.ts
+@@ -8,9 +8,10 @@ interface State {
+ }
+
+ export function createStore() {
+-  const state = reactive<State>({ cart: [], filters: { inStock: true, minPrice: 0 } });
++  // pulled filters out so components can destructure them
++  const state = reactive<State>({ cart: [], filters: { inStock: true, minPrice: 0 } });
++  const { filters } = state;
+   const addToCart = (id: string, qty: number) => {
+     state.cart.push({ id, qty });
+   };
+-  return { state, addToCart };
++  return { state, filters, addToCart };
+ }

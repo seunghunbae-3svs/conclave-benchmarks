@@ -1,0 +1,13 @@
+{
+  "id": "2026-09-security-sql-injection",
+  "category": "security",
+  "expected_verdict": "reject",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "blocker",
+      "category_hint": "security",
+      "note": "Parametrized query replaced with template-literal interpolation. Textbook SQL injection: `' OR '1'='1` in email dumps every row, `'; DROP TABLE users; --` destroys data."
+    }
+  ]
+}

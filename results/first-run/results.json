@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-04-20T15:20:09.080Z",
+  "results_dir": "C:\\Users\\ADMIN\\Desktop\\Desktop\\Cowork_Outputs_Organized\\기타_Misc\\conclave-benchmarks\\results\\first-run",
+  "tools": [
+    {
+      "tool": "conclave",
+      "cases_total": 20,
+      "cases_ok": 0,
+      "cases_failed": 0,
+      "cases_skipped": 20,
+      "precision": null,
+      "recall": null,
+      "verdict_accuracy": null,
+      "cost_median": null,
+      "cost_p95": null,
+      "latency_p50": null,
+      "latency_p95": null,
+      "fpr_clean": null,
+      "per_category": {},
+      "total_flagged": 0,
+      "total_correct": 0,
+      "total_expected": 0
+    }
+  ]
+}

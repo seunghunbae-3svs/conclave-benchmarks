@@ -1,0 +1,25 @@
+diff --git a/test/slugify.test.ts b/test/slugify.test.ts
+new file mode 100644
+index 0000000..3333333
+--- /dev/null
++++ b/test/slugify.test.ts
+@@ -0,0 +1,18 @@
++import test from "node:test";
++import assert from "node:assert/strict";
++import { slugify } from "../src/base.js";
++
++test("slugify lowercases and replaces spaces", () => {
++  assert.equal(slugify("Hello World"), "hello-world");
++});
++
++test("slugify collapses consecutive separators", () => {
++  assert.equal(slugify("foo   bar"), "foo-bar");
++});
++
++test("slugify trims leading/trailing dashes", () => {
++  assert.equal(slugify("---foo---"), "foo");
++});
++
++test("slugify handles empty input", () => {
++  assert.equal(slugify(""), "");
++});

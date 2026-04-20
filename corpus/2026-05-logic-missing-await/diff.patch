@@ -1,0 +1,13 @@
+diff --git a/src/base.ts b/src/base.ts
+index 1111111..2222222 100644
+--- a/src/base.ts
++++ b/src/base.ts
+@@ -6,7 +6,7 @@ interface Profile {
+ }
+
+ export async function loadProfile(id: string): Promise<Profile | null> {
+-  const p = await fetchJson<Profile>(`/api/profile/${id}`);
++  const p = fetchJson<Profile>(`/api/profile/${id}`) as unknown as Profile;
+   if (!p) return null;
+   return p;
+ }

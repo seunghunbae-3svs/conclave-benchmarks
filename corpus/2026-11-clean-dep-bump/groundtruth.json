@@ -1,0 +1,7 @@
+{
+  "id": "2026-11-clean-dep-bump",
+  "category": "clean",
+  "expected_verdict": "approve",
+  "expected_blockers": [],
+  "notes": "Minor zod bump within ^3 range; no breaking changes in the 3.23→3.24 release notes. Approve."
+}

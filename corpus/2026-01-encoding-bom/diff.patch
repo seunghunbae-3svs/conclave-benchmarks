@@ -1,0 +1,11 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..d5e4c3a
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,5 @@
++\ufeff# Project Title
++
++Contributor guide follows.
++
++See CONTRIBUTING for details.

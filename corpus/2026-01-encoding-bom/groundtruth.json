@@ -1,0 +1,14 @@
+{
+  "id": "2026-01-encoding-bom",
+  "category": "encoding",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "README.md",
+      "severity": "major",
+      "category_hint": "encoding",
+      "note": "UTF-16 BOM at start of README breaks GitHub rendering and some Markdown parsers."
+    }
+  ],
+  "notes": "Hit during Conclave E2E smoke test; reproducible — known-good ground truth."
+}

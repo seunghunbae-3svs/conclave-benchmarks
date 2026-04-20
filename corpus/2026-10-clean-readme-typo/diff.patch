@@ -1,0 +1,11 @@
+diff --git a/README.md b/README.md
+index 1111111..2222222 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,5 @@
+ # Project
+
+-A high-qulaity TypeScript library for date formatting.
++A high-quality TypeScript library for date formatting.
+
+ ## Install

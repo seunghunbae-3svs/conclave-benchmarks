@@ -1,0 +1,14 @@
+{
+  "id": "2026-17-regression-node-fs-sync",
+  "category": "regression",
+  "expected_verdict": "rework",
+  "expected_blockers": [
+    {
+      "file_pattern": "src/base.ts",
+      "severity": "major",
+      "category_hint": "performance",
+      "note": "Sync I/O in a code path declared `async`. Blocks the Node event loop during every config read. Regression pattern called out in Node's own performance docs and in numerous Express/Fastify audit reports."
+    }
+  ],
+  "source_url": "https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop"
+}
