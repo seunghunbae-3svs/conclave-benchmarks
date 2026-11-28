@@ -1,44 +1,24 @@
 # Conclave Benchmarks — Leaderboard
 
-_Generated 2026-04-20T15:20:09Z from `results/first-run/`._
-
-## Status
-
-**First-run harness verification — no live LLM invocation.** This run was executed on the repo-bootstrap machine, which does not hold LLM API keys, so the `conclave` adapter returned `skipped: true` for every case. The harness itself ran end-to-end without crashing, which was the acceptance criterion for Phase 1.
-
-Live numbers will land from:
-
-- The **nightly workflow** ([`.github/workflows/nightly.yml`](.github/workflows/nightly.yml)) — runs on a GitHub Actions runner with `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GEMINI_API_KEY` provisioned as secrets. Opens a PR against `main` with the refreshed RESULTS.md.
-- **Local runs** — anyone with keys can reproduce: `corepack pnpm bench -- --corpus corpus/ --tools conclave --cli-version <v> --output results/<run-id>/` followed by `corepack pnpm score`.
+_Generated 2026-11-28T06:12:38.263Z from `/home/runner/work/conclave-benchmarks/conclave-benchmarks/results/nightly`._
 
 ## Summary
 
 | Tool | Cases (ok / total) | Verdict accuracy | Precision | Recall | FPR (clean) | Cost p50 / p95 | Latency p50 / p95 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| conclave | 0 / 20 (20 skipped) | — | — | — | — | — / — | — / — |
+| conclave | 20 / 20 | 65.0% | 63.6% | 41.2% | 100.0% | $0.0279 / $0.0470 | 35383ms / 54948ms |
 
 ## Per-category catch rate
 
-| Tool | encoding | logic | security | clean | regression |
+| Tool | clean | encoding | logic | regression | security |
 | --- | --- | --- | --- | --- | --- |
-| conclave | — | — | — | — | — |
+| conclave | 0 / 0 | 0 / 2 | 2 / 4 | 3 / 8 | 2 / 3 |
 
 ## Raw counts
 
 | Tool | Flagged | Correct | Expected |
 | --- | --- | --- | --- |
-| conclave | 0 | 0 | 0 |
-
-## Corpus composition (reference)
-
-| Category | Count | Expected verdicts |
-| --- | --- | --- |
-| regression | 8 | 7 rework / 1 reject |
-| logic | 4 | 2 rework / 2 reject |
-| security | 3 | 3 reject |
-| encoding | 2 | 2 rework |
-| clean | 3 | 3 approve |
-| **total** | **20** | |
+| conclave | 11 | 7 | 17 |
 
 ## Methodology
 
